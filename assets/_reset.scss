@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+
+$darkpurple: #2D1E2F;
+$celadon: #A9E5BB;
+$money-yellow: #F7B32B;
+$white: #FFFFFF;
+$light-color: #777;
+$border: .1rem solid $darkpurple;
+$box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+
+* {
+    font-family: 'Ubuntu', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    border: none;
+    outline: none;
+    text-decoration: none;
+    text-transform: capitalize;
+    transition: .2s linear all;
+    color: black;
+}
+
+html {
+    font-size: 62.5%;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+    scroll-padding-top: 7rem;
+
+    &::-webkit-scrollbar {
+        width: 1rem;
+    }
+
+    &::-webkit-scrollbar-track {
+        background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+        background-color: $money-yellow;
+        border-radius: 5rem;
+    }
+}
+
+.btn{
+    display: inline-block;
+    padding: 1rem 3rem;
+    font-size: 1.7rem;
+    border: $border;
+    background: transparent;
+    color: $celadon;
+
+    &:hover{
+        background: $celadon;
+        color: white;
+    }
+}
+
+section{
+    padding: 5rem 10%;
+}
+
+.heading{
+    text-align: center;
+    margin-bottom: 3rem;
+    @include titleText(3rem);
+}

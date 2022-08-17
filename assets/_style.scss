@@ -1,0 +1,819 @@
+$darkpurple: #2D1E2F;
+$celadon: #A9E5BB;
+$white: #FFFFFF;
+$vermillion: #E3170A;
+$money-yellow: #F7B32B;
+$light-color: #777;
+$border: .1rem solid $darkpurple;
+$box-shadow: 0 .5rem 1rem rgba(0, 0, 0, .1);
+
+.header {
+    position: sticky;
+    top: 0;
+    left: 0;
+    right: 0;
+    background: $white;
+    box-shadow: $box-shadow;
+    padding: 2rem 10%;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+
+    .logo {
+        margin-right: auto;
+        @include titleText(2.5rem);
+        font-weight: bolder;
+
+        i {
+            color: $celadon;
+        }
+    }
+
+    .navbar {
+        a {
+            margin-right: 2rem;
+            @include titleText(2rem);
+            color: $darkpurple;
+            position: relative;
+
+            &::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 0;
+                width: 0;
+                height: .3rem;
+                background-color: $celadon;
+                transition: .2s all ease;
+            }
+
+            &:hover {
+                color: $celadon;
+
+                &::after {
+                    width: 100%;
+                }
+            }
+        }
+
+    }
+
+    .icons {
+        div {
+            cursor: pointer;
+            font-size: 2rem;
+            color: black;
+            margin-left: 1.5rem;
+
+            &:hover {
+                color: $darkpurple;
+            }
+        }
+
+        #account-btn {
+            &:hover {
+                color: $celadon;
+            }
+        }
+
+        #menu-btn {
+            display: none;
+        }
+    }
+}
+
+.account-form {
+    position: fixed;
+    top: 0;
+    right: -105%;
+    width: 35rem;
+    background: $white;
+    display: flex;
+    flex-flow: column;
+    gap: 2rem;
+    justify-content: center;
+    height: 100%;
+    z-index: 999;
+    padding: 2rem;
+    text-align: center;
+
+    &.active {
+        right: 0;
+        box-shadow: 0 0 0 100vw rgba(0, 0, 0, .8);
+    }
+
+    #close-form {
+        position: absolute;
+        top: 1.5rem;
+        right: 2.5rem;
+        font-size: 4rem;
+        cursor: pointer;
+        color: black;
+
+        &:hover {
+            transform: rotate(90deg);
+        }
+    }
+
+    form {
+        border: $border;
+        padding: 2rem;
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        h3 {
+            @include titleText(3rem);
+            padding-bottom: .5rem;
+        }
+
+        .box {
+            width: 100%;
+            padding: 1.2rem 1.4rem;
+            border: $border;
+            font-size: 1.6rem;
+            margin: .7rem 0;
+        }
+
+        .flex {
+            padding: 1rem 0;
+            display: flex;
+            align-items: center;
+            gap: .5rem;
+
+            label {
+                font-size: 1.5rem;
+                color: $light-color;
+                cursor: pointer;
+            }
+
+            a {
+                font-size: 1.5rem;
+                color: $light-color;
+                margin-left: auto;
+
+                &:hover {
+                    text-decoration: underline;
+                    color: $celadon;
+                }
+            }
+        }
+
+        .btn {
+            width: 100%;
+        }
+    }
+
+    .register-form {
+        .btn {
+            margin-top: 2.5rem;
+        }
+    }
+
+    .buttons {
+        .btn {
+            margin: 0 .5rem;
+        }
+
+        .active {
+            background-color: $darkpurple;
+        }
+    }
+}
+
+.home {
+    padding: 0;
+
+    .slide {
+        display: flex;
+        align-items: center;
+        height: 60rem;
+        background-size: cover;
+        background-position: center;
+
+        .content {
+            width: 50rem;
+
+            h3 {
+                @include titleText(6rem);
+                color: $money-yellow;
+            }
+
+            p {
+                @include graphText(2rem);
+                color: $white;
+                padding: 1rem 0;
+            }
+        }
+    }
+}
+
+.footer {
+    background: $darkpurple;
+
+    .box-container {
+        @include grid(25rem);
+
+        .box {
+            h3 {
+                @include titleText(2.2rem);
+                color: $celadon;
+                padding: 1rem 0;
+            }
+
+            i {
+                color: $money-yellow;
+            }
+
+            .link {
+                @include graphText(2rem);
+                padding: .5rem 0;
+                display: block;
+                color: white;
+
+                &:hover {
+                    color: $celadon;
+                    text-decoration: underline;
+                }
+            }
+
+            p {
+                @include graphText(1.7rem);
+                padding: 1rem 0;
+                color: $white;
+            }
+
+            form {
+                .btn {
+                    border-color: $celadon;
+
+                    &:hover {
+                        background-color: $celadon;
+                    }
+                }
+            }
+
+            .email {
+                width: 100%;
+                padding: 1.2rem 1.4rem;
+                font-size: 1.6rem;
+                border: $border;
+                border-color: $celadon;
+                margin-bottom: 2rem;
+            }
+
+            .share {
+                margin: 1rem 0;
+
+                a {
+                    @include titleText(2.5rem);
+                    color: $white;
+                    margin-right: 1rem;
+                }
+
+                #f:hover {
+                    color: #4267B2;
+                }
+
+                #t:hover {
+                    color: #1DA1F2;
+                }
+
+                #l:hover {
+                    color: #0077b5;
+                }
+
+                #i:hover {
+                    color: #E1306C;
+                }
+            }
+        }
+    }
+}
+
+.swiper-pagination-bullet-active {
+    background-color: $money-yellow;
+}
+
+.subjects {
+    .box-container {
+        @include grid(16rem);
+
+        .box {
+            padding: 3rem 2rem;
+            text-align: center;
+            cursor: pointer;
+
+            &:hover {
+                background: $darkpurple;
+
+                h3 {
+                    color: $white;
+                }
+
+                p {
+                    color: $light-color;
+                }
+
+                img {
+                    transform: translateY(-1rem);
+                }
+            }
+
+            img {
+                height: 10rem;
+                margin-bottom: .5rem;
+            }
+
+            h3 {
+                @include titleText(1.7rem);
+                padding: .5rem .5rem;
+            }
+
+            p {
+                @include graphText(1.5rem);
+            }
+        }
+    }
+}
+
+.home-courses {
+    .slide {
+        text-align: center;
+        position: relative;
+        width: 30rem;
+        overflow: hidden;
+
+        &:hover {
+            .content {
+                bottom: 0;
+            }
+        }
+
+        .image {
+            padding: 2rem;
+
+            img {
+                width: 100%;
+                margin-bottom: 1.5rem;
+            }
+
+            h3 {
+                @include titleText(2rem);
+            }
+        }
+
+        .content {
+            position: absolute;
+            bottom: -100%;
+            left: 0;
+            right: 0;
+            background: $darkpurple;
+            padding: 2rem 3rem;
+
+
+            h3 {
+                @include titleText(2rem);
+                color: $white;
+            }
+
+            p {
+                @include graphText(1.3rem);
+                padding: 1rem;
+                color: $white;
+            }
+        }
+    }
+}
+
+.heading-link {
+    text-align: center;
+    background: url(/images/heading-bg.jpg) no-repeat;
+    background-size: cover;
+    background-position: center;
+
+    h3 {
+        @include titleText(4rem);
+    }
+
+    p {
+        @include graphText(2rem);
+
+        a {
+            color: $money-yellow;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+    }
+}
+
+.about {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 3rem;
+
+    .image {
+        flex: 1 1 30rem;
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .content {
+        flex: 1 1 40rem;
+
+        .about-title {
+            @include titleText(2rem);
+        }
+
+        p {
+            @include graphText(1.7rem);
+        }
+
+        .icons-container {
+            margin-top: 1rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+
+            .icons {
+                flex: 1 1 16rem;
+                text-align: center;
+                padding: 3rem 2rem;
+
+                img {
+                    height: 7rem;
+                    margin-bottom: .5rem;
+                }
+
+                h3 {
+                    @include titleText(4rem);
+                }
+
+                span {
+                    @include graphText(1.7rem);
+                }
+            }
+        }
+    }
+}
+
+.teachers {
+    .slide {
+        text-align: center;
+        width: 30rem;
+
+        &:hover {
+            .image {
+                img {
+                    background: $celadon;
+
+                }
+
+                .share {
+                    bottom: 0;
+                }
+            }
+
+        }
+
+        .image {
+            position: relative;
+            overflow: hidden;
+
+            img {
+                width: 100%;
+            }
+
+            .share {
+                position: absolute;
+                bottom: -10rem;
+                left: 0;
+                right: 0;
+                background: rgba(0, 0, 0, 0.8);
+                padding: 2rem;
+
+                a {
+                    font-synthesis: 3rem;
+                    margin: 0 1rem;
+                    color: $white;
+                    font-size: 2rem;
+                }
+
+                #f:hover {
+                    color: #4267B2;
+                }
+
+                #t:hover {
+                    color: #1DA1F2;
+                }
+
+                #l:hover {
+                    color: #0077b5;
+                }
+
+                #i:hover {
+                    color: #E1306C;
+                }
+            }
+        }
+
+        .content {
+            display: flex;
+            padding-top: 2rem;
+            align-items: center;
+            justify-content: space-between;
+
+            h3 {
+                @include titleText(2.5rem);
+            }
+
+            span {
+                @include graphText(1.7rem);
+            }
+        }
+    }
+}
+
+.reviews {
+    .slide {
+        text-align: center;
+        width: 30rem;
+
+        p {
+            @include graphText(1.7rem);
+            position: relative;
+            background: $money-yellow;
+            color: $white;
+            margin-bottom: 3rem;
+            border: $border;
+            border-color: $money-yellow;
+            padding: 2rem;
+
+            &::before {
+                content: '';
+                position: absolute;
+                bottom: -1.2rem;
+                left: 50%;
+                transform: translateX(-50%) rotate(45deg);
+                background-color: $money-yellow;
+                width: 2rem;
+                height: 2rem;
+                border-right: $border;
+                border-bottom: $border;
+                border-color: $money-yellow;
+            }
+        }
+
+        img {
+            height: 7rem;
+            width: 7rem;
+            border-radius: 50%;
+        }
+
+        h3 {
+            @include titleText(2rem);
+            padding: .5rem 0;
+        }
+
+        .stars {
+            font-size: 1.5rem;
+
+            i {
+                color: $money-yellow;
+            }
+        }
+    }
+}
+
+.courses {
+    .box-container {
+        @include grid(32rem);
+
+        .box {
+
+            &:hover {
+                .image {
+                    img {
+                        transform: scale(1.1);
+                    }
+                }
+            }
+
+            .image {
+                height: 25rem;
+                overflow: hidden;
+                position: relative;
+
+                img {
+                    height: 100%;
+                    width: 100%;
+                    object-fit: cover;
+                }
+
+                h3 {
+                    @include titleText(1.6rem);
+                    position: absolute;
+                    top: 1rem;
+                    left: 1rem;
+                    padding: .5rem 1.5rem;
+                    background: $white;
+                }
+            }
+
+            .content {
+                padding: 2rem;
+                text-align: center;
+                border: $border;
+
+                h3 {
+                    @include titleText(2rem);
+                }
+
+                p {
+                    padding: 1rem;
+                    @include graphText(1.7rem);
+                }
+
+                .icons {
+                    display: flex;
+                    align-items: center;
+                    justify-content: space-between;
+                    margin-top: 2rem;
+                    padding-top: 2rem;
+                    border-top: $border;
+
+                    span {
+                        @include titleText(1.5rem);
+
+                        i {
+                            color: $celadon;
+                            margin-right: .5rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .load-more {
+        margin-top: 2rem;
+        text-align: center;
+        cursor: pointer;
+    }
+}
+
+.contact {
+    .icons-container {
+        @include grid(25rem);
+        margin-bottom: 2rem;
+    }
+
+    .icons {
+        text-align: center;
+        padding: 3rem 2rem;
+        border: $border;
+        background: $celadon;
+
+        i {
+            height: 6rem;
+            width: 6rem;
+            line-height: 6rem;
+            font-size: 3rem;
+            border-radius: 50%;
+            margin-bottom: .5rem;
+            color: $white;
+            background: $darkpurple;
+        }
+
+        h3 {
+            @include titleText(2rem);
+            margin: .7rem 0;
+        }
+
+        p {
+            @include graphText(1.5rem);
+            color: $white;
+        }
+    }
+
+    .row {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 2rem;
+
+        .image {
+            flex: 1 1 40rem;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        form {
+            flex: 1 1 40rem;
+            border: $border;
+            padding: 2rem;
+
+            h3 {
+                @include titleText(2rem);
+                padding-bottom: 1rem;
+            }
+
+            .box {
+                margin: .7rem 0;
+                width: 100%;
+                padding: 1rem 0;
+                border-bottom: $border;
+                font-size: 1.6rem;
+                color: $light-color;
+
+                &:focus {
+                    padding: 1.2rem 1.4rem;
+                    border-color: $money-yellow;
+                    background-color: $white;
+                }
+
+            }
+
+            textarea {
+                height: 15rem;
+                resize: none;
+            }
+        }
+    }
+}
+
+.faq {
+    .accordion-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 2rem;
+        align-items: flex-start;
+
+        .accordion {
+            flex: 1 1 40rem;
+            border: $border;
+            
+            
+            &.active{
+                .accordion-heading{
+                    background: $celadon;
+                    
+                    h3{
+                        color: $white;
+                    }
+                    
+                    i{
+                        transform: rotate(180deg);
+                    }
+                }
+                
+                .accordion-content{
+                    display: block;
+                }
+            }
+            
+            .accordion-heading {
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                gap: 1rem;
+                padding: 1.5rem;
+
+                &:hover{
+                    background: $celadon;
+
+                    h3{
+                        color: $white
+                    }
+                }
+
+                h3 {
+                    @include titleText(1.5rem);
+                }
+
+                i {
+                    font-size: 2rem;
+                    color: $darkpurple;
+                }
+
+            }
+
+            .accordion-content {
+                padding: 1.5rem;
+                @include graphText(1.5rem);
+                border-top: $border;
+                display: none;
+            }
+        }
+    }
+}
